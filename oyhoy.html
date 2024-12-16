@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Store</title>
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/previews/016/664/881/non_2x/perfume-logo-illustration-symbol-design-vector.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+    background-color: #f8f1e6;
+}
+
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ab8e66;
+}
+
+.form-control {
+    border-radius: 20px;
+    border-color: #ab8e66;
+}
+
+.form-control:focus {
+    border-color: #9e7a55;
+    box-shadow: 0 0 0 0.2rem rgba(174, 142, 102, 0.25);
+}
+
+.btn-outline-dark {
+    border: 2px solid #ab8e66;
+}
+
+.btn-outline-dark:hover {
+    background-color: #ab8e66;
+    color: white;
+}
+
+
+.carousel-item {
+    position: relative;
+    border-bottom: 1px solid white;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #f8f1e6;
+    background-color: rgba(145, 123, 84, 0.8);
+    padding: 20px;
+    border-radius: 70px 0px 70px 0px;
+    max-width: 80%;
+}
+
+.content h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #f8f1e6;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #f8f1e6;
+}
+
+.content .btn {
+    margin: 0.5rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #e0e7a1, #d5ae7a);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content .btn:hover {
+    background: linear-gradient(135deg, #d5c07a, rgba(145, 123, 84, 0.8));
+    transform: scale(1.05);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.content .btn:active {
+    transform: scale(1.02);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 50vh;
+    }
+
+    .content {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .content h1 {
+        font-size: 1.5rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    .content .btn {
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .content {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .content h1 {
+        font-size: 1.2rem;
+    }
+
+    .content p {
+        font-size: 0.9rem;
+    }
+
+    .content .btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+.promo-box {
+    background-color: #E8EAF6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.promo-content {
+    text-align: left; 
+}
+
+.promo-content h3 {
+    font-size: 1rem;
+    color: #ab8e66;
+}
+
+.promo-content h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.promo-content p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.promo-code {
+    color: #ab8e66;
+}
+
+.promo-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.btn-outline-dark {
+    border: 2px solid #ab8e66;
+    color: #ab8e66;
+}
+
+.btn-outline-dark:hover {
+    background-color: #ab8e66;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .promo-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promo-img {
+        margin: 20px 0 0;
+    }
+}
+
+
+
+.product-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    padding: 20px; 
+    position: relative; 
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.badge-new {
+    background-color: #ab8e66;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px;
+}
+
+.product-title {
+    font-size: 1.125rem; 
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.product-rating {
+    font-size: 1rem; 
+}
+
+.product-price {
+    font-size: 1.125rem; 
+    color: #ab8e66;
+}
+
+.product-price del {
+    color: #999;
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 20px;
+    }
+}
+
+.about-section {
+    background: linear-gradient(to right, #f7f5f2, #e8e6e3); 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700; 
+    color: #333;
+}
+
+.about-section p {
+    font-size: 1.125rem;
+    color: #555; 
+    line-height: 1.6;
+}
+
+.about-section .btn-custom {
+    background-color: #ab8e66;
+    border-color: #ab8e66;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.about-section .btn-custom:hover {
+    background-color: #9e7a55; 
+    border-color: #9e7a55;
+}
+
+
+.card-slider {
+    position: relative;
+    padding: 50px 0;
+}
+
+.card {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    height: 450px;
+}
+
+.card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: #333;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.card-price {
+    color: #ab8e66;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-cart {
+    background-color: transparent;
+    color: #ab8e66;
+    border: 2px solid #ab8e66;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-cart:hover {
+    background-color: #ab8e66;
+    color: #fff;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #333;
+    border-radius: 50%;
+}
+
+.carousel-indicators li {
+    background-color: #ab8e66;
+}
+
+.carousel-indicators .active {
+    background-color: #333;
+}
+
+h1, p {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.carousel-inner {
+    border-bottom: none;
+}
+
+.main-contact {
+    width: 100%;
+    height: auto;
+    background-image: url(https://wallpapercave.com/wp/wp11308717.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.back-color{
+    background-color: rgba(0, 0, 0, 0.363);
+}
+
+.contact-form {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.contact-form h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contact-form .form-label {
+    color: #cccccc;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.contact-form .form-control {
+    background-color: #cececeb9;
+    border-color: #ab8e66;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.contact-form .form-control:focus {
+    border-color: #9e7a55;
+    box-shadow: 0 0 0 0.2rem rgba(174, 142, 102, 0.5);
+}
+
+.contact-form .btn-custom {
+    background-color: #ab8e66;
+    color: #fff;
+    border-color: #ab8e66;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 0;
+}
+
+.contact-form .btn-custom:hover {
+    background-color: #9e7a55;
+    border-color: #9e7a55;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 20px;
+        margin: 0 15px;
+    }
+}
+
+
+.customer-reviews {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.customer-reviews h2 {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.review-card {
+    background-color: #dfdfdf;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-content p {
+    font-size: 1rem;
+    color: #3a3a3a;
+    font-style: italic;
+}
+
+.reviewer-info {
+    font-size: 0.875rem;
+    color: #333;
+}
+
+.reviewer-info img {
+    border: 2px solid #ab8e66;
+}
+
+.reviewer-info h5 {
+    font-size: 1.125rem;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .customer-reviews h2 {
+        font-size: 2rem;
+    }
+
+    .review-card {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+.footer-section {
+    background-color: #d4d4d4;
+    color: #000000;
+    padding: 40px 0;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ab8e66;
+}
+
+.footer-text {
+    font-size: 1rem;
+    color: #000000;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ab8e66;
+}
+
+.newsletter-form input {
+    background-color: #ffffff;
+    border: 1px solid #ab8e66;
+    color: #000000;
+    border-radius: 4px;
+}
+
+.newsletter-form .btn-custom {
+    background-color: #9c9c9c;
+    color: #000000;
+    border-color: #ab8e66;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.newsletter-form .btn-custom:hover {
+    background-color: #9e7a55;
+    border-color: #9e7a55;
+}
+
+.social-icons a {
+    color: #ab8e66;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #9e7a55;
+}
+
+.footer-bottom-text {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #dddada;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/logo.png" alt="Logo" style="max-height: 100px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#arrivals">Arrivals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">News</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-lg-3" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit" style="background-color: #ab8e66; color: white;">
+                        <i class="fa-solid fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://wallpapercave.com/wp/wp9988141.jpg" class="d-block w-100" alt="Slider Image 1">
+                <div class="content">
+                    <h1>Elegance Perfume</h1>
+                    <p>Discover the timeless scent of Elegance, a fragrance that embodies sophistication and grace.</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Learn More</a>
+                    <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Buy Now</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://wallpapercave.com/wp/wp11934483.jpg" class="d-block w-100" alt="Slider Image 2">
+                <div class="content">
+                    <h1>Luxury Essence</h1>
+                    <p>Immerse yourself in the rich and opulent scent of Luxury Essence, perfect for special occasions.</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Learn More</a>
+                    <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Buy Now</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://wallpapercave.com/wp/wp7225176.jpg" class="d-block w-100" alt="Slider Image 3">
+                <div class="content">
+                    <h1>Floral Dream</h1>
+                    <p>Experience the delicate and fresh notes of Floral Dream, a fragrance inspired by blooming gardens.</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Learn More</a>
+                    <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Buy Now</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://wallpapercave.com/wp/wp13274141.jpg" class="d-block w-100" alt="Slider Image 4">
+                <div class="content">
+                    <h1>Mystic Night</h1>
+                    <p>Embrace the enchanting allure of Mystic Night, a perfume that exudes mystery and depth.</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Learn More</a>
+                    <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    
+    <div class="container-fluid my-4 mt-5">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="promo-box d-flex flex-column flex-md-row align-items-center p-3">
+                    <div class="promo-content flex-grow-1 text-center text-md-start">
+                        <h3 class="text-uppercase text-muted mb-2">Hurry Up</h3>
+                        <h2 class="fw-bold mb-3">Big Sale To 30% Off</h2>
+                        <p class="mb-3">Use Promo Code: <span class="promo-code fw-bold text-uppercase">IBRAHIM</span></p>
+                        <a href="#" class="btn btn-outline-dark">Shop Now</a>
+                    </div>
+                    <div class="promo-img mt-4 mt-md-0 ms-md-4">
+                        <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-2.jpg" alt="Perfume Bottle" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="promo-box d-flex flex-column flex-md-row align-items-center p-3">
+                    <div class="promo-content flex-grow-1 text-center text-md-start">
+                        <h3 class="text-uppercase text-muted mb-2">Sale Up to 50% Off</h3>
+                        <h2 class="fw-bold mb-3">Get Daily Update</h2>
+                        <p class="mb-3">Use Promo Code: <span class="promo-code fw-bold text-uppercase">IBRAHIM</span></p>
+                        <a href="#" class="btn btn-outline-dark">Shop Now</a>
+                    </div>
+                    <div class="promo-img mt-4 mt-md-0 ms-md-4">
+                        <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-8.jpg" alt="Perfume Bottle" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <div class="container-fluid my-5" id="arrivals">
+        <h2 class="text-center mb-4" style="font-weight: bold;"><u>NEW ARRIVALS</u></h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-7.jpg" alt="Blanche Parfum" class="img-fluid mb-3">
+                    <h5 class="product-title">Blanche Parfum</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-4.jpg" alt="Glorious Eau" class="img-fluid mb-3">
+                    <h5 class="product-title">Glorious Eau</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-3.jpg" alt="Bibliotheque" class="img-fluid mb-3">
+                    <h5 class="product-title">Bibliotheque</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-7.jpg" alt="Cuerpo Eau" class="img-fluid mb-3">
+                    <h5 class="product-title">Cuerpo Eau</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-7.jpg" alt="Blanche Parfum" class="img-fluid mb-3">
+                    <h5 class="product-title">Blanche Parfum</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-4.jpg" alt="Glorious Eau" class="img-fluid mb-3">
+                    <h5 class="product-title">Glorious Eau</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-3.jpg" alt="Bibliotheque" class="img-fluid mb-3">
+                    <h5 class="product-title">Bibliotheque</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="product-card text-center p-3">
+                    <span class="badge badge-new">New</span>
+                    <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-7.jpg" alt="Cuerpo Eau" class="img-fluid mb-3">
+                    <h5 class="product-title">Cuerpo Eau</h5>
+                    <div class="product-rating mb-2">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                    </div>
+                    <p class="product-price"><del>$65</del> $45</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid" id="about">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="WhatsApp Image 2024-08-13 at 4.07.20 AM.jpeg" alt="" class="img-fluid h-100">
+            </div>
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="about-section h-100 p-5">
+                    <h2 class="mb-4">Our Story</h2>
+                    <p class="mb-4">Welcome to our store! We offer a curated selection of the finest perfumes from around the world. Our collection is carefully chosen to ensure quality and satisfaction. Whether you are looking for a signature scent or a unique gift, we have something for everyone.</p>
+                    <a href="#" class="btn btn-custom">See More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container-fluid my-5">
+        <h1 style="font-weight: bold;"><u>TOP PERFUMES</u></h1>
+        <p style="font-weight: 600;">Discover our exquisite collection of fragrances. Each scent is crafted to perfection, offering you a luxurious and unforgettable experience.</p>
+        <div id="cardCarousel" class="carousel slide card-slider" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-8.jpg" class="card-img-top" alt="Blanche Parfum">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Blanche Parfum</h5>
+                                    <p class="card-price">$65.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-7.jpg" class="card-img-top" alt="Glorious Eau">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Glorious Eau</h5>
+                                    <p class="card-price">$75.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-6.jpg" class="card-img-top" alt="Bibliotheque">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Bibliotheque</h5>
+                                    <p class="card-price">$85.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-4.jpg" class="card-img-top" alt="Cuerpo Eau">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Cuerpo Eau</h5>
+                                    <p class="card-price">$55.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-3.jpg" class="card-img-top" alt="Santal 33">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Santal 33</h5>
+                                    <p class="card-price">$95.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-5.jpg" class="card-img-top" alt="Noir de Noir">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Noir de Noir</h5>
+                                    <p class="card-price">$105.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-1.jpg" class="card-img-top" alt="Rose of No Man’s Land">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Rose of No Man’s Land</h5>
+                                    <p class="card-price">$115.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img src="https://dreamingtheme.kiendaotac.com/html/stelina/assets/images/product-item-7.jpg" class="card-img-top" alt="Vetiver">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Vetiver</h5>
+                                    <p class="card-price">$70.00</p>
+                                    <button class="btn btn-cart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    
+    
+    <div class="main-contact" id="contact">
+      <div class="back-color">
+        <div class="container-fluid my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form p-5">
+                        <h2 class="mb-4 text-center"><u>CONTACT US</u></h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-custom w-100">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="customer-reviews ">
+        <div class="container-fluid">
+            <h2 class="text-center mb-5"><u>What Our Customers Say</u></h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card p-4">
+                        <div class="review-content mb-3">
+                            <p>"The perfumes are simply amazing! The scents are unique and long-lasting. I’m incredibly happy with my purchase."</p>
+                        </div>
+                        <div class="reviewer-info d-flex align-items-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBO4DRhXVeqWQpeVVtYZTlw_o82TXgNthHJw&s" width="80px" alt="Reviewer 1" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Bilal</h5>
+                                <p class="mb-0">Verified Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card p-4">
+                        <div class="review-content mb-3">
+                            <p>"I’ve never been this satisfied with a perfume store before. The customer service is top-notch, and the selection is fantastic!"</p>
+                        </div>
+                        <div class="reviewer-info d-flex align-items-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBO4DRhXVeqWQpeVVtYZTlw_o82TXgNthHJw&s" width="80px" alt="Reviewer 2" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Asim</h5>
+                                <p class="mb-0">Verified Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="review-card p-4">
+                        <div class="review-content mb-3">
+                            <p>"This store has become my go-to for perfumes. The fragrances are luxurious, and the packaging is beautiful."</p>
+                        </div>
+                        <div class="reviewer-info d-flex align-items-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBO4DRhXVeqWQpeVVtYZTlw_o82TXgNthHJw&s" width="80px" alt="Reviewer 3" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Ramish</h5>
+                                <p class="mb-0">Verified Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer-section" id="footer">
+    <div class="container">
+        <div class="row justify-content-evenly">
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h4 class="footer-title">Subscribe to Our Newsletter</h4>
+                <form class="newsletter-form">
+                    <input type="email" class="form-control mb-2" placeholder="Enter your email">
+                    <button type="submit" class="btn btn-custom w-100">Subscribe</button>
+                </form>
+                <div class="social-icons mt-3 text-center">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h4 class="footer-title">Customer Service</h4>
+                <ul class="footer-links">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="footer-bottom-text">© 2024 My Perfume Store. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
